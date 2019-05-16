@@ -29,14 +29,14 @@ describe('Challenge 1 - Express route', () => {
   // you can use `response` and `dogFromDb`
   // to help make assertions!
   describe('POST /api/dogs', () => {
-    xit('response status should be 201', async () => {
+    it('response status should be 201', async () => {
       const response = await agent.post('/api/dogs').send(dogData);
 
       // your expect assertion here...
       expect(response.status).to.equal(201);
     });
 
-    xit('response should be an object with a message and data field', async () => {
+    it('response should be an object with a message and data field', async () => {
       const response = await agent.post('/api/dogs').send(dogData);
 
       // your expect assertion here...
@@ -44,14 +44,14 @@ describe('Challenge 1 - Express route', () => {
       expect(response.body.data).to.exist;
     });
 
-    xit('message field of response should be `Success`', async () => {
+    it('message field of response should be `Success`', async () => {
       const response = await agent.post('/api/dogs').send(dogData);
 
       // your expect assertion here...
       expect(response.body.message).to.equal('Success');
     });
 
-    xit('response data should match the db data', async () => {
+    it('response data should match the db data', async () => {
       const response = await agent.post('/api/dogs').send(dogData);
       const dogFromDb = await agent.get(`/api/dogs/${response.body.data.id}`);
 
