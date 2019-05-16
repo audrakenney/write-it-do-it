@@ -33,21 +33,22 @@ describe('Challenge 1 - Express route', () => {
       const response = await agent.post('/api/dogs').send(dogData);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(response.status).to.equal(201);
     });
 
     xit('response should be an object with a message and data field', async () => {
       const response = await agent.post('/api/dogs').send(dogData);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(response.body.message).to.exist;
+      expect(response.body.data).to.exist;
     });
 
     xit('message field of response should be `Success`', async () => {
       const response = await agent.post('/api/dogs').send(dogData);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(response.body.message).to.equal('Success');
     });
 
     xit('response data should match the db data', async () => {
@@ -55,7 +56,7 @@ describe('Challenge 1 - Express route', () => {
       const dogFromDb = await agent.get(`/api/dogs/${response.body.data.id}`);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+    expect(response.body.data.name).to.equal(dogFromDb.name);
     });
   });
 });
