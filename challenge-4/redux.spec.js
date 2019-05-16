@@ -39,21 +39,22 @@ describe('Challenge 4 - Redux Store', () => {
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(typeof returnValue).to.be('object')
     });
 
     xit('the action creator returns an object with `type` and `dogs` fields', () => {
       const returnValue = gotDogs(doggies);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(returnValue.type).to.exist;
+      expect(returnValue.dogs).to.exist;
     });
 
     xit('the `dogs` field of the action should match the dogs passed in to the action creator', () => {
       const returnValue = gotDogs(doggies);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(returnValue.dogs).to.equal(doggies);
     });
 
     xit('the reducer returns a new state with dogs after dispatching `addDogs`', () => {
@@ -61,7 +62,7 @@ describe('Challenge 4 - Redux Store', () => {
       const newState = store.getState();
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(newState.dogs).to.equal(doggies);
     });
   });
 });
