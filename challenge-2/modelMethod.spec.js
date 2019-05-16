@@ -45,23 +45,23 @@ describe('Challenge 2 - Sequelize model', () => {
   // you can use `response` and `dogsInDb`
   // to help make assertions!
   describe('Dog class method `findPuppies` (should return all dogs whose age is <= 1)', () => {
-    xit('response should be an array', async () => {
+    it('response should be an array', async () => {
       // to check if something is an array:
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
       const response = await Dog.findPuppies();
 
       // your expect assertion here...
-      expect(response.body).to.be('Array');
+      expect(response.body).to.be('array');
     });
 
-    xit('length of response should match how many puppies are in the db', async () => {
+    it('length of response should match how many puppies are in the db', async () => {
       const response = await Dog.findPuppies();
 
       // your expect assertion here...
       expect(response.body).to.have.length(dogData.length)
     });
 
-    xit('data in response should match puppy data in db', async () => {
+    it('data in response should match puppy data in db', async () => {
       const response = await Dog.findPuppies();
 
       // your expect assertion here...

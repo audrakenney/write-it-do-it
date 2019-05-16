@@ -41,28 +41,29 @@ describe('Challenge 3 - React Component', () => {
       const wrapper = shallow(<DogList dogs={doggies} />);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(wrapper.find('ul')).to.have.length(1);
     });
 
     xit('there should be an `li` in the `ul` for each dog in the list (dog list is passed in as props)', () => {
       const wrapper = shallow(<DogList dogs={doggies} />);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
-    });
+      expect(wrapper.find('li')).to.have.length(2);
+        });
 
     xit('each `li` should display the name of each dog', () => {
       const wrapper = shallow(<DogList dogs={doggies} />);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(wrapper.find('li').at(0).text()).to.contain('Cody');
+      expect(wrapper.find('li').at(1).text()).to.contain('Spike');
     });
 
     xit('there should be no `li` elements in the `ul` if there are no dogs in the list', () => {
       const wrapper = shallow(<DogList dogs={[]} />);
 
       // your expect assertion here...
-      expect('your test').to.equal('goes here!');
+      expect(wrapper.find('li')).to.have.length(0);
     });
   });
 });
